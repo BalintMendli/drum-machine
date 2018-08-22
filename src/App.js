@@ -18,10 +18,22 @@ class App extends Component {
             <div className="drum-pad" id="C">C</div>
           </div>
           <div id="control-div">
-            <div id="power"></div>
+            <div id="power">
+              <label className="switch">
+                <input type="checkbox" />
+                <span className="slider"></span>
+              </label>
+            </div>
             <div id="display"></div>
-            <div id="volume"></div>
-            <div id="bank"></div>
+            <div id="volume">
+              <input type="range" min="1" max="100" defaultValue="50" className="rslider" id="myRange"/>
+            </div>
+            <div id="bank">
+              <label className="switch">
+                <input type="checkbox" />
+                <span className="slider"></span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
