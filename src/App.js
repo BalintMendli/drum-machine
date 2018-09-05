@@ -7,7 +7,8 @@ class App extends Component {
     this.state={
       bank:0,
       power:true,
-      volume:0.5
+      volume:0.5,
+      display:''
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -27,6 +28,8 @@ class App extends Component {
   }
   handleClick(e){
     if(this.state.power){
+      const toDisplay=this.audio[e.target.id][this.state.bank].src.split('/').slice(-1)[0].split('.')[0].replace(/[_-]/g,' ').toUpperCase();
+      this.setState({display: toDisplay});
       this.audio[e.target.id][this.state.bank].volume = this.state.volume;
       this.audio[e.target.id][this.state.bank].currentTime = 0;
       this.audio[e.target.id][this.state.bank].play();
@@ -34,13 +37,15 @@ class App extends Component {
   }
   handleChange(){
     if(this.state.bank===0){
-      this.setState({bank:1});
+      this.setState({bank:1, display: "BANK 2"});
     } else{
-      this.setState({bank:0});
+      this.setState({bank:0, display: "BANK 1"});
     }
   }
   handleKeyDown(e){
     if(['Q','W','E','A','S','D','Z','X','C'].indexOf(e.key.toUpperCase())!==-1 && this.state.power){
+      const toDisplay=this.audio[e.key.toUpperCase()][this.state.bank].src.split('/').slice(-1)[0].split('.')[0].replace(/[_-]/g,' ').toUpperCase();
+      this.setState({display: toDisplay});
       this.audio[e.key.toUpperCase()][this.state.bank].volume = this.state.volume;
       this.audio[e.key.toUpperCase()][this.state.bank].currentTime = 0;
       this.audio[e.key.toUpperCase()][this.state.bank].play();
@@ -48,13 +53,13 @@ class App extends Component {
   }
   handlePower(){
     if(this.state.power===true){
-      this.setState({power:false});
+      this.setState({power:false, display: ''});
     } else{
       this.setState({power:true});
     }
   }
   handleVolume(e){
-    this.setState({volume: e.target.value/100});
+    this.setState({volume: e.target.value/100, display: 'VOLUME: '+e.target.value});
   }
   render() {
     return (
@@ -79,7 +84,7 @@ class App extends Component {
               </label>
               <div id="power-switch-label">Power</div>
             </div>
-            <div id="display"></div>
+            <div id="display">{this.state.display}</div>
             <div id="volume">
               <input type="range" min="0" max="100" value={this.state.volume*100} className="rslider" id="myRange" onChange={this.handleVolume}/>
               <label htmlFor="myRange">Volume</label>
