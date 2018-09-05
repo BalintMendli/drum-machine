@@ -8,8 +8,7 @@ class App extends Component {
       bank:0,
       power:true,
       volume:0.5,
-      display:'',
-      keyDown:''
+      display:''
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -18,6 +17,16 @@ class App extends Component {
     this.handleVolume = this.handleVolume.bind(this);
     this.handleKeyActive = this.handleKeyActive.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.ref={};
+    this.ref.Q = React.createRef();
+    this.ref.W = React.createRef();
+    this.ref.E = React.createRef();
+    this.ref.A = React.createRef();
+    this.ref.S = React.createRef();
+    this.ref.D = React.createRef();
+    this.ref.Z = React.createRef();
+    this.ref.X = React.createRef();
+    this.ref.C = React.createRef();
     this.audio={};
     this.audio.Q = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3')];
     this.audio.W = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3')];
@@ -66,25 +75,29 @@ class App extends Component {
     this.setState({volume: e.target.value/100, display: 'VOLUME: '+e.target.value});
   }
   handleKeyActive(key){
-    this.setState({keyDown: key});
+    if(this.ref[key].current.className.includes(' down')===false){
+      this.ref[key].current.className+=" down";
+    }
   }
-  handleKeyUp(){
-    this.setState({keyDown: ''});
+  handleKeyUp(e){
+    if(['Q','W','E','A','S','D','Z','X','C'].indexOf(e.key.toUpperCase())!==-1){
+      this.ref[e.key.toUpperCase()].current.className=this.ref[e.key.toUpperCase()].current.className.replace(' down', '');
+    }
   }
   render() {
     return (
       <div className="App" onKeyDown={this.handleKeyDown} onKeyUp={this.handleKeyUp} tabIndex="0">
         <div id="drum-machine">
           <div id="drum-pad-div">
-            <div className={"drum-pad"+(this.state.keyDown==="Q" ? ' down' : '')} id="Q" onClick={this.handleClick}>Q</div>
-            <div className={"drum-pad"+(this.state.keyDown==="W" ? ' down' : '')} id="W" onClick={this.handleClick}>W</div>
-            <div className={"drum-pad"+(this.state.keyDown==="E" ? ' down' : '')} id="E" onClick={this.handleClick}>E</div>
-            <div className={"drum-pad"+(this.state.keyDown==="A" ? ' down' : '')} id="A" onClick={this.handleClick}>A</div>
-            <div className={"drum-pad"+(this.state.keyDown==="S" ? ' down' : '')} id="S" onClick={this.handleClick}>S</div>
-            <div className={"drum-pad"+(this.state.keyDown==="D" ? ' down' : '')} id="D" onClick={this.handleClick}>D</div>
-            <div className={"drum-pad"+(this.state.keyDown==="Z" ? ' down' : '')} id="Z" onClick={this.handleClick}>Z</div>
-            <div className={"drum-pad"+(this.state.keyDown==="X" ? ' down' : '')} id="X" onClick={this.handleClick}>X</div>
-            <div className={"drum-pad"+(this.state.keyDown==="C" ? ' down' : '')} id="C" onClick={this.handleClick}>C</div>
+            <div className="drum-pad" ref={this.ref.Q} id="Q" onClick={this.handleClick}>Q</div>
+            <div className="drum-pad" ref={this.ref.W} id="W" onClick={this.handleClick}>W</div>
+            <div className="drum-pad" ref={this.ref.E} id="E" onClick={this.handleClick}>E</div>
+            <div className="drum-pad" ref={this.ref.A} id="A" onClick={this.handleClick}>A</div>
+            <div className="drum-pad" ref={this.ref.S} id="S" onClick={this.handleClick}>S</div>
+            <div className="drum-pad" ref={this.ref.D} id="D" onClick={this.handleClick}>D</div>
+            <div className="drum-pad" ref={this.ref.Z} id="Z" onClick={this.handleClick}>Z</div>
+            <div className="drum-pad" ref={this.ref.X} id="X" onClick={this.handleClick}>X</div>
+            <div className="drum-pad" ref={this.ref.C} id="C" onClick={this.handleClick}>C</div>
           </div>
           <div id="control-div">
             <div id="power">
