@@ -17,26 +17,28 @@ class App extends Component {
     this.handleVolume = this.handleVolume.bind(this);
     this.handleKeyActive = this.handleKeyActive.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
-    this.ref={};
-    this.ref.Q = React.createRef();
-    this.ref.W = React.createRef();
-    this.ref.E = React.createRef();
-    this.ref.A = React.createRef();
-    this.ref.S = React.createRef();
-    this.ref.D = React.createRef();
-    this.ref.Z = React.createRef();
-    this.ref.X = React.createRef();
-    this.ref.C = React.createRef();
-    this.audio={};
-    this.audio.Q = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3')];
-    this.audio.W = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3')];
-    this.audio.E = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3')];
-    this.audio.A = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3')];
-    this.audio.S = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3')];
-    this.audio.D = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3')];
-    this.audio.Z = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3')];
-    this.audio.X = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3')];
-    this.audio.C = [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3')];
+    this.ref={
+      Q: React.createRef(),
+      W: React.createRef(),
+      E: React.createRef(),
+      A: React.createRef(),
+      S: React.createRef(),
+      D: React.createRef(),
+      Z: React.createRef(),
+      X: React.createRef(),
+      C: React.createRef()
+    };
+    this.audio={
+      Q: [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3')],
+      W: [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3')],
+      E: [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3')],
+      A: [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3')],
+      S: [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3')],
+      D: [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3')],
+      Z: [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3')],
+      X: [new Audio('https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3')],
+      C: [new Audio('https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'), new Audio('https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3')]
+    };
   }
   handleClick(e){
     if(this.state.power){
