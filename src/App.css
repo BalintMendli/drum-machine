@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: #141014;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -49,19 +50,20 @@
   border: 1px solid #6f9990;
   border-radius: 5px;
   background-color: #459785;
-  box-shadow: 2px 2px 2px 2px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 175ms ease-out;
 }
 
-.drum-pad:active{
-  background-color: #ffa500;
+.drum-pad:hover{
+  background-color:#539e8e;
 }
 
-.down{
-  background-color: #ffa500;
+.drum-pad:active, .down{
+  background-color: #ffa500 !important;
 }
 
 .switch {
@@ -112,8 +114,7 @@ input:checked + .slider:before {
 #display{
   width: 150px;
   height: 50px;
-  background-color: #d3d3d3;
-  opacity: 0.7;
+  background-color: rgba(211, 211, 211, 0.7);
   display: flex;
   justify-content:center;
   align-items: center;
