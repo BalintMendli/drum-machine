@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  color: #141014;
+  color: #232921;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -49,7 +49,7 @@
 .drum-pad{
   border: 1px solid #6f9990;
   border-radius: 5px;
-  background-color: #459785;
+  background-color: #499781;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
@@ -59,11 +59,11 @@
 }
 
 .drum-pad:hover{
-  background-color:#539e8e;
+  background-color:#50A88F;
 }
 
 .drum-pad:active, .down{
-  background-color: #ffa500 !important;
+  background-color: #E8C547 !important;
 }
 
 .switch {
@@ -73,7 +73,9 @@
   height: 20px;
 }
 
-.switch input {display:none;}
+.switch input {
+  display:none;
+}
 
 .slider {
   position: absolute;
@@ -83,8 +85,13 @@
   right: 0;
   bottom: 0;
   background-color: #d3d3d3;
-  transition: .4s;
-  border-radius: 20px;
+  transition: .2s;
+  border-radius: 7px;
+  opacity: 0.8;
+}
+
+.slider:hover{
+  opacity: 1;
 }
 
 .slider:before {
@@ -94,17 +101,22 @@
   width: 18px;
   left: 1px;
   bottom: 1px;
-  background-color: white;
+  background-color: #121317;
   transition: .4s;
-  border-radius: 50%;
+  border-radius: 7px;
 }
 
 input:checked + .slider {
-  background-color: #832f30;
+  background-color: #d3d3d3;
+}
+
+input:checked + .slider.power{
+  background-color: #A93B3D;
+  opacity:1;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #832f30;
+  box-shadow: 0 0 1px #7E2D2E;
 }
 
 input:checked + .slider:before {
@@ -127,7 +139,7 @@ input:checked + .slider:before {
   border-radius: 5px;
   background: #d3d3d3;
   outline: none;
-  opacity: 0.7;
+  opacity: 0.8;
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
@@ -139,17 +151,17 @@ input:checked + .slider:before {
 .rslider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #832f30;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: #121317;
   cursor: pointer;
 }
 
 .rslider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #832f30;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: #121317;
   cursor: pointer;
 }

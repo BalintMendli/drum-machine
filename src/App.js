@@ -105,7 +105,7 @@ class App extends Component {
             <div id="power">
               <label className="switch">
                 <input type="checkbox" defaultChecked onChange={this.handlePower}/>
-                <span className="slider"></span>
+                <span className="slider power"></span>
               </label>
               <div id="power-switch-label">Power</div>
             </div>
