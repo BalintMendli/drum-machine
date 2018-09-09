@@ -4,6 +4,7 @@
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color:#E75153;
@@ -19,6 +20,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+#title{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  text-transform: uppercase;
+}
+
+#title::after{
+  content: url('equalizer.svg');
+  display: inline-block;
+  width: 1em;
+  margin-left:0.5em;
 }
 
 #drum-machine::before, #drum-machine::after{
@@ -262,8 +278,8 @@ input:checked + .slider:before {
 }
 .rslider::-ms-thumb {
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 15px;
+  width: 15px;
   border-radius: 50%;
   background: #121317;
 }
@@ -272,4 +288,17 @@ input:checked + .slider:before {
 }
 .rslider:focus::-ms-fill-upper {
   background: #ccc;
+}
+
+#footer{
+  font-size: 12px;
+  font-family: sans-serif;
+  text-decoration: none;
+  margin-top: 3px;
+}
+
+a{
+  text-decoration: none;
+  color: #285448;
+  font-weight: bold;
 }

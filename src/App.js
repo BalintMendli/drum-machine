@@ -90,6 +90,7 @@ class App extends Component {
     return (
       <div className="App" onKeyDown={this.handleKeyDown} onKeyUp={this.handleKeyUp} tabIndex="0">
         <div id="drum-machine">
+          <div id="title">Drum Machine</div>
           <div id="drum-pad-div">
             <div className="drum-pad" ref={this.ref.Q} id="Q" onClick={this.handleClick}>Q</div>
             <div className="drum-pad" ref={this.ref.W} id="W" onClick={this.handleClick}>W</div>
@@ -123,6 +124,7 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <div id="footer">by <a href="http://github.com/zenott">zenott</a></div>
       </div>
     );
   }
