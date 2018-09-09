@@ -77,7 +77,7 @@ class App extends Component {
     this.setState({volume: e.target.value/100, display: 'VOLUME: '+e.target.value});
   }
   handleKeyActive(key){
-    if(this.ref[key].current.className.includes(' down')===false){
+    if(this.ref[key].current.className.indexOf(' down')===-1){
       this.ref[key].current.className+=" down";
     }
   }

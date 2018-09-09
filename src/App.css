@@ -17,8 +17,12 @@
   border: 8px solid #4F3A4B;
   border-radius: 10px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+}
+
+#drum-machine::before, #drum-machine::after{
+  content:'';
 }
 
 #drum-pad-div{
@@ -37,13 +41,61 @@
     "Z X C";
 }
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #drum-pad-div {
+    display: -ms-grid;
+    -ms-grid-rows: 1fr 10px 1fr 10px 1fr;
+    -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
+  }
+  #Q{
+    -ms-grid-row:1; 
+    -ms-grid-column:1;
+  }
+  #W{
+    -ms-grid-row:1; 
+    -ms-grid-column:3;
+  }
+  #E{
+    -ms-grid-row:1; 
+    -ms-grid-column:5;
+  }
+  #A{
+    -ms-grid-row:3; 
+    -ms-grid-column:1;
+  }
+  #S{
+    -ms-grid-row:3; 
+    -ms-grid-column:3;
+  }
+  #D{
+    -ms-grid-row:3; 
+    -ms-grid-column:5;
+  }
+  #Z{
+    -ms-grid-row:5; 
+    -ms-grid-column:1;
+  }
+  #X{
+    -ms-grid-row:5; 
+    -ms-grid-column:3;
+  }
+  #C{
+    -ms-grid-row:5; 
+    -ms-grid-column:5;
+  }
+}
+
 #control-div{
   width: 200px;
   height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+}
+
+#control-div::before, #control-div::after{
+  content: '';
 }
 
 .drum-pad{
@@ -88,6 +140,8 @@
   transition: .2s;
   border-radius: 7px;
   opacity: 0.8;
+  box-shadow: inset 0px 0px 4px -1px rgba(0, 0, 0, 0.7),
+              2px 2px 5px -3px rgba(0, 0, 0, 0.7);
 }
 
 .slider:hover{
@@ -104,6 +158,8 @@
   background-color: #121317;
   transition: .4s;
   border-radius: 7px;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.7),
+              inset 1px 1px 3px -2px rgba(255, 255, 255, 0.5);
 }
 
 input:checked + .slider {
@@ -116,7 +172,7 @@ input:checked + .slider.power{
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #7E2D2E;
+  box-shadow: 0 0 1px rgb(0, 0, 0);
 }
 
 input:checked + .slider:before {
@@ -130,18 +186,29 @@ input:checked + .slider:before {
   display: flex;
   justify-content:center;
   align-items: center;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 4px -1px rgba(0, 0, 0, 0.7),
+              2px 2px 5px -3px rgba(0, 0, 0, 0.7);
+}
+
+#volume{
+  display: flex;
+  flex-direction: column;
 }
 
 .rslider {
   -webkit-appearance: none;
-  width: 100%;
+  width: 200px;
   height: 15px;
   border-radius: 5px;
   background: #d3d3d3;
   outline: none;
   opacity: 0.8;
+  padding: 0px;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  box-shadow: inset 0px 0px 4px -1px rgba(0, 0, 0, 0.7),
+              2px 2px 5px -3px rgba(0, 0, 0, 0.7);
 }
 
 .rslider:hover {
@@ -156,12 +223,53 @@ input:checked + .slider:before {
   border-radius: 7px;
   background: #121317;
   cursor: pointer;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.7),
+              inset 1px 1px 3px -2px rgba(255, 255, 255, 0.5);
 }
 
 .rslider::-moz-range-thumb {
+  border: none;
   width: 22px;
   height: 22px;
   border-radius: 7px;
   background: #121317;
   cursor: pointer;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.7),
+              inset 1px 1px 3px -2px rgba(255, 255, 255, 0.5);
+}
+
+.rslider::-ms-track {
+  width: 200px;
+  height: 5px;
+  
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+  
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+  
+  /*remove default tick marks*/
+  color: transparent;
+}
+.rslider::-ms-fill-lower {
+  background: #777;
+  border-radius: 10px;
+}
+.rslider::-ms-fill-upper {
+  background: #ddd;
+  border-radius: 10px;
+}
+.rslider::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #121317;
+}
+.rslider:focus::-ms-fill-lower {
+  background: #888;
+}
+.rslider:focus::-ms-fill-upper {
+  background: #ccc;
 }
