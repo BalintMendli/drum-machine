@@ -27,7 +27,7 @@
     "prettier": "^1.14.3",
     "prettier-stylelint": "^0.4.2",
     "stylelint-config-prettier": "^4.0.0",
-    "stylelint-config-standard": "^18.2.0"
+    "stylelint-config-standard": "^18.3.0"
   },
   "browserslist": [
     ">0.2%",
